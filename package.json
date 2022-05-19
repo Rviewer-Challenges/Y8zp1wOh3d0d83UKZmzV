@@ -7,6 +7,9 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
+    "@nuxt-hero-icons/outline": "^1.0.1",
+    "@nuxt-hero-icons/solid": "^1.0.1",
+    "@nuxtjs/tailwindcss": "^5.0.4",
     "nuxt": "3.0.0-rc.3"
   }
 }
