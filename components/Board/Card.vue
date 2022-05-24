@@ -1,26 +1,32 @@
 <script setup>
-const card = ref({
-  name: "Rick Sanchez",
-  imageSrc: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+const props = defineProps({
+  card: {
+    type: Object,
+    default: () => {},
+  },
 });
+const selected = ref(false);
 </script>
 <template>
   <div>
     <div
-      class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden sm:aspect-w-2 sm:aspect-h-3"
+      v-if="selected"
+      class="w-full h-72 rounded-lg overflow-hidden cursor-pointer"
     >
       <img
-        :src="card.imageSrc"
-        :alt="card.imageAlt"
+        :src="card.image"
         class="w-full h-full object-center object-cover group-hover:opacity-75"
       />
     </div>
     <div
-      class="mt-4 flex items-center justify-between text-base font-medium text-gray-100"
+      v-if="!selected"
+      class="w-full bg-black h-72 rounded-lg overflow-hidden cursor-pointer"
     >
-      <h3>
-        {{ card.name }}
-      </h3>
+      <img
+        @click="selected = true"
+        src="~/public/logo_rick_morty.png"
+        class="w-full h-full px-4 object-center object-contain group-hover:opacity-75"
+      />
     </div>
   </div>
 </template>
